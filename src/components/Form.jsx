@@ -5,7 +5,7 @@ class Form extends Component {
     name: '',
     date: '',
     time: '',
-    guests: 0
+    number: 0
    }
 
   handleChange = (event) => {
@@ -15,11 +15,10 @@ class Form extends Component {
   }
 
   handleClick = e => {
-    e.preventDefault();
-    const {name, date, time, guests} = this.state
-    if (name && date && time && guests) {
+    const {name, date, time, number} = this.state
+    if (name && date && time && number) {
       const newReservation = {...this.state, id:Date.now()}
-      this.setState({name: '', date: '', time: '', guests: ''})
+      this.setState({name: '', date: '', time: '', number: ''})
       this.props.addReservation(newReservation)
     }
 
@@ -56,12 +55,13 @@ class Form extends Component {
         <input
           placeholder='Number of Guests'
           type='text'
-          pattern="[0-9]*"
-          value={this.state.guests}
+          pattern="[0-20]*"
+          value={this.state.number}
           name='guests'
           onChange={this.handleChange}
         />
         <button
+          role='button'
           onClick={this.handleClick}
         >Make Reservation</button>
       </div>

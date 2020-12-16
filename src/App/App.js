@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import ResContainer from "../components/ResContainer";
 import Form from "../components/Form";
-// import {getReservationsData} from '../utilities/apiCalls'
+import {getReservationsData} from '../utilities/apiCalls'
 
 class App extends Component {
   state = {
@@ -10,13 +10,7 @@ class App extends Component {
   };
 
   componentDidMount = async () => {
-    const response = await fetch(
-      "http://localhost:3001/api/v1/reservations"
-    ).then(response => response.json());
-    this.setState({ reservations: response });
-    // const reservations = await getReservationsData()
-    // .then(reservations => this.setState({reservations.reservations}));
-    // .then(reservations => console.log(reservations));
+    getReservationsData().then((response) => this.setState({ reservations: response }))
   };
 
   addReservation = reservation => {
