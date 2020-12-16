@@ -1,13 +1,14 @@
 import React from 'react';
 import Reservation from './Reservation'
+import '../index.css'
 
 const ResContainer = (props) => {
   return ( 
-    <React.Fragment>
+    <div className='reso-overlay'>
       {props.reservations.map(reservation => (
         <Reservation key={reservation.id} reservation={reservation}/>
       ))}
-    </React.Fragment>
+    </div>
    );
 }
  

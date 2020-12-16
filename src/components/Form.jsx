@@ -8,18 +8,26 @@ class Form extends Component {
     guests: 0
    }
 
-
   handleChange = (event) => {
     const input = event.target.name
     const value = event.target.value
     this.setState({[input]: value})
-    
-    console.log('form handlechange', event.target)
+  }
+
+  handleClick = e => {
+    e.preventDefault();
+    const {name, date, time, guests} = this.state
+    if (name && date && time && guests) {
+      const newReservation = {...this.state, id:Date.now()}
+      this.setState({name: '', date: '', time: '', guests: ''})
+      this.props.addReservation(newReservation)
+    }
+
   }
 
   render() { 
     return ( 
-      <div>
+      <div className='form'>
         <h2>FORM Component</h2>
         <label>Name</label>
         <input
@@ -54,6 +62,9 @@ class Form extends Component {
           name='guests'
           onChange={this.handleChange}
         />
+        <button
+          onClick={this.handleClick}
+        >Make Reservation</button>
       </div>
      );
   }
