@@ -4,7 +4,9 @@ import Reservation from './Reservation'
 const ResContainer = (props) => {
   return ( 
     <React.Fragment>
-      <Reservation />
+      {props.reservations.map(reservation => (
+        <Reservation key={reservation.id} reservation={reservation}/>
+      ))}
     </React.Fragment>
    );
 }
