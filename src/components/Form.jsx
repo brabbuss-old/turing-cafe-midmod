@@ -28,7 +28,6 @@ class Form extends Component {
   render() { 
     return ( 
       <div className='form'>
-        <h2>FORM Component</h2>
         <label>Name</label>
         <input
           placeholder='Name'

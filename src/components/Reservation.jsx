@@ -6,7 +6,7 @@ const Reservation = props => {
 
   return (
     <section className='reso-card'>
-      <h1>Guest: {name}</h1>
+      <h1>{name}</h1>
       <h3>Date: {date}</h3>
       <h3>Time: {time}</h3>
       <h3>Diners: {number}</h3>
